@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59ADAEC4-3642-45FF-B825-102C22F2430C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RPG.Runner</RootNamespace>
+    <AssemblyName>RPG.Runner</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\SCBush.cs" />
+    <Compile Include="Controls\SCCharacter.cs" />
+    <Compile Include="Controls\SCHand.cs" />
+    <Compile Include="Controls\SCLocation.cs" />
+    <Compile Include="Controls\SCBuilding.cs" />
+    <Compile Include="Controls\SCStone.cs" />
+    <Compile Include="Controls\SCTree.cs" />
+    <Compile Include="Controls\SCWorld.cs" />
+    <Compile Include="Domain\Bush.cs" />
+    <Compile Include="Domain\Character.cs" />
+    <Compile Include="Domain\Hand.cs" />
+    <Compile Include="Domain\Location.cs" />
+    <Compile Include="Domain\Building.cs" />
+    <Compile Include="Domain\Stone.cs" />
+    <Compile Include="Domain\Tree.cs" />
+    <Compile Include="Domain\World.cs" />
+    <Compile Include="EnemyAspect.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameAspect.cs" />
+    <Compile Include="HeroAspect.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorPainter\RazorPainter.cs" />
+    <Compile Include="RazorPainter\RazorPainterWFCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SCEnemy.cs" />
+    <Compile Include="SCGame.cs" />
+    <Compile Include="SCHero.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RPG.Core\RPG.Core.csproj">
+      <Project>{cb1e2876-b184-450a-8cd3-fa67c65494cd}</Project>
+      <Name>RPG.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.Math\RPG.Math.csproj">
+      <Project>{6e481b30-9f4d-4d12-a6de-92ba1fbab00a}</Project>
+      <Name>RPG.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.NodeVisitors.Collisions\RPG.NodeVisitors.Collisions.csproj">
+      <Project>{F47CE95D-42FE-41D6-9E3F-C29A4FE4D050}</Project>
+      <Name>RPG.NodeVisitors.Collisions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.NodeVisitors.Draw\RPG.NodeVisitors.Draw.csproj">
+      <Project>{7a47f4e1-402e-49f8-bdde-86437854d0e9}</Project>
+      <Name>RPG.NodeVisitors.Draw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.NodeVisitors.Input\RPG.NodeVisitors.Input.csproj">
+      <Project>{2019DA8B-5ED7-41EC-B90D-8C87BA4807DF}</Project>
+      <Name>RPG.NodeVisitors.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.NodeVisitors.Pointer\RPG.NodeVisitors.Pointer.csproj">
+      <Project>{A048C5BA-4403-4B3A-9DB1-294F2E1F41EA}</Project>
+      <Name>RPG.NodeVisitors.Pointer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.NodeVisitors.Update\RPG.NodeVisitors.Update.csproj">
+      <Project>{67FA4CC7-17E8-455F-AE4B-AC6C168EA9A0}</Project>
+      <Name>RPG.NodeVisitors.Update</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.SceneControls\RPG.SceneControls.csproj">
+      <Project>{c97b7006-fe7b-45cf-992e-08b100a321a5}</Project>
+      <Name>RPG.SceneControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RPG.SceneGraph\RPG.SceneGraph.csproj">
+      <Project>{5b4580aa-9209-4f67-b351-c08aeaf8975d}</Project>
+      <Name>RPG.SceneGraph</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
